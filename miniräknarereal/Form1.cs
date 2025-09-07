@@ -1,10 +1,13 @@
+using System.Diagnostics.Eventing.Reader;
+using System.DirectoryServices.ActiveDirectory;
+
 namespace miniräknarereal
 {
     public partial class Form1 : Form
     {
         double forsta_talet = 0;
         string raknesatt = "";
-        double minnesparad = 0;
+        double minne = 0;
 
         public Form1()
         {
@@ -30,7 +33,7 @@ namespace miniräknarereal
 
         private void button11_Click(object sender, EventArgs e) // Plus
         {
-            if (double.TryParse(textBox1.Text, out forsta_talet))
+            forsta_talet = Convert.ToDouble(textBox1.Text);
             {
                 raknesatt = "+";
                 textBox1.Clear();
@@ -39,7 +42,7 @@ namespace miniräknarereal
 
         private void button13_Click(object sender, EventArgs e) // Gånger
         {
-            if (double.TryParse(textBox1.Text, out forsta_talet))
+            forsta_talet = Convert.ToDouble(textBox1.Text);
             {
                 raknesatt = "*";
                 textBox1.Clear();
@@ -89,7 +92,7 @@ namespace miniräknarereal
 
         private void button12_Click(object sender, EventArgs e) // Minus
         {
-            if (double.TryParse(textBox1.Text, out forsta_talet))
+            forsta_talet = Convert.ToDouble(textBox1.Text);
             {
                 raknesatt = "-";
                 textBox1.Clear();
@@ -98,7 +101,7 @@ namespace miniräknarereal
 
         private void button15_Click(object sender, EventArgs e) // Division
         {
-            if (double.TryParse(textBox1.Text, out forsta_talet))
+            forsta_talet = Convert.ToDouble(textBox1.Text);
             {
                 raknesatt = "/";
                 textBox1.Clear();
@@ -107,46 +110,47 @@ namespace miniräknarereal
 
         private void button14_Click(object sender, EventArgs e) // Lika med
         {
-            double andra_talet;
-            string input = textBox1.Text.Trim().ToLower();
 
-            
-            if (input == "oh")
-                raknesatt = "+";
-            else if (input == "i")
-                raknesatt = "-";
-            else if (input == "g")
-                raknesatt = "*";
-            else if (input == "d")
-                raknesatt = "/";
-
-            if (double.TryParse(input, out andra_talet))
+            double andra_talet = Convert.ToDouble(textBox1.Text = Convert.ToString(textBox1.Text));
+            if (raknesatt == "+")
             {
-                double resultat = 0;
-                switch (raknesatt)
-                {
-                    case "+":
-                        resultat = forsta_talet + andra_talet;
-                        break;
-                    case "-":
-                        resultat = forsta_talet - andra_talet;
-                        break;
-                    case "*":
-                        resultat = forsta_talet * andra_talet;
-                        break;
-                    case "/":
-                        if (andra_talet != 0)
-                            resultat = forsta_talet / andra_talet;
-                        else
-                        {
-                            MessageBox.Show("Division med noll är inte tillåten!");
-                            return;
-                        }
-                        break;
-                }
-                textBox1.Text = resultat.ToString();
+                textBox1.Text = (forsta_talet + andra_talet).ToString();
+            }
+            else if (raknesatt == "-")
+            {
+                textBox1.Text = (forsta_talet - andra_talet).ToString();
+            }
+
+            else if (raknesatt == "*")
+            {
+                textBox1.Text = (forsta_talet * andra_talet).ToString();
+            }
+            else if (raknesatt == "/")
+            {
+                textBox1.Text = (forsta_talet / andra_talet).ToString();
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void button14_Click_1(object sender, EventArgs e)
         {
@@ -161,12 +165,12 @@ namespace miniräknarereal
 
         private void button18_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text + "3.14";
+            textBox1.Text = "3,14";
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-
+            textBox1.Text = minne.ToString();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -177,6 +181,47 @@ namespace miniräknarereal
         private void button7_Click_1(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void button14_Click_2(object sender, EventArgs e)
+        {
+            double tal = Convert.ToDouble(textBox1.Text); // läser texten från rutan och gör om texten till ett tal av typen double (Decimla tal) sparar det i en lokal variabel
+            double kvadrat = tal * tal; // räknar tal gånger tal om tal är 5 blir kvadrat 25 5*5 = 25
+            textBox1.Text = kvadrat.ToString(); // gör om resultat kvadrat ett double till text med string och visar resultatet genom att sätta textBox1.text till den texten
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = textBox1.Text + "0";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            minne = Convert.ToDouble(textBox1.Text);
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            minne = 0; //nollställ minnet
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            double tal = Convert.ToDouble(textBox1.Text); // hämtar talet i rutan
+            double rot = Math.Sqrt(tal); // räkna kvadratrotten
+            textBox1.Text = rot.ToString(); // visar svaret i rutan
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            int tal = Convert.ToInt32(textBox1.Text); // hämta talet som heltal
+            textBox1.Text = Convert.ToString(tal, 2); // gör om till binärt bas 2
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            int tal = Convert.ToInt32(textBox1.Text, 2); // hämta binärt som heltal
+            textBox1.Text = tal.ToString(); // till text vanligt tal
         }
     }
 }

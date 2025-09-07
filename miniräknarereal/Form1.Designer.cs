@@ -46,13 +46,16 @@
             textBox1 = new TextBox();
             button15 = new Button();
             button7 = new Button();
-            kommatecken = new Button();
+            button21 = new Button();
             button16 = new Button();
             button17 = new Button();
             button18 = new Button();
             button19 = new Button();
             checkBox1 = new CheckBox();
             button14 = new Button();
+            button20 = new Button();
+            button22 = new Button();
+            button23 = new Button();
             SuspendLayout();
             // 
             // button77
@@ -154,6 +157,7 @@
             button10.TabIndex = 9;
             button10.Text = "0";
             button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // button11
             // 
@@ -191,7 +195,7 @@
             // summa
             // 
             summa.BackColor = Color.Silver;
-            summa.Location = new Point(445, 360);
+            summa.Location = new Point(463, 358);
             summa.Name = "summa";
             summa.Size = new Size(160, 65);
             summa.TabIndex = 13;
@@ -230,16 +234,16 @@
             button7.UseVisualStyleBackColor = false;
             button7.Click += button7_Click_1;
             // 
-            // kommatecken
+            // button21
             // 
-            kommatecken.BackColor = Color.Silver;
-            kommatecken.Location = new Point(327, 334);
-            kommatecken.Name = "kommatecken";
-            kommatecken.Size = new Size(112, 34);
-            kommatecken.TabIndex = 17;
-            kommatecken.Text = ",";
-            kommatecken.UseVisualStyleBackColor = false;
-            kommatecken.Click += button14_Click_1;
+            button21.BackColor = Color.Silver;
+            button21.Location = new Point(327, 334);
+            button21.Name = "button21";
+            button21.Size = new Size(112, 34);
+            button21.TabIndex = 17;
+            button21.Text = ",";
+            button21.UseVisualStyleBackColor = false;
+            button21.Click += button14_Click_1;
             // 
             // button16
             // 
@@ -250,11 +254,12 @@
             button16.TabIndex = 18;
             button16.Text = "M+";
             button16.UseVisualStyleBackColor = false;
+            button16.Click += button16_Click;
             // 
             // button17
             // 
             button17.BackColor = Color.Silver;
-            button17.Location = new Point(606, 173);
+            button17.Location = new Point(606, 152);
             button17.Name = "button17";
             button17.Size = new Size(63, 35);
             button17.TabIndex = 19;
@@ -267,7 +272,7 @@
             button18.BackColor = Color.Silver;
             button18.Location = new Point(606, 234);
             button18.Name = "button18";
-            button18.Size = new Size(76, 34);
+            button18.Size = new Size(63, 34);
             button18.TabIndex = 20;
             button18.Text = "Pi";
             button18.UseVisualStyleBackColor = false;
@@ -276,12 +281,13 @@
             // button19
             // 
             button19.BackColor = Color.Silver;
-            button19.Location = new Point(606, 294);
+            button19.Location = new Point(606, 194);
             button19.Name = "button19";
-            button19.Size = new Size(76, 34);
+            button19.Size = new Size(63, 34);
             button19.TabIndex = 21;
             button19.Text = "MC";
             button19.UseVisualStyleBackColor = false;
+            button19.Click += button19_Click;
             // 
             // checkBox1
             // 
@@ -302,21 +308,54 @@
             button14.TabIndex = 23;
             button14.Text = "x²";
             button14.UseVisualStyleBackColor = true;
+            button14.Click += button14_Click_2;
+            // 
+            // button20
+            // 
+            button20.Location = new Point(675, 66);
+            button20.Name = "button20";
+            button20.Size = new Size(63, 37);
+            button20.TabIndex = 24;
+            button20.Text = "button20";
+            button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
+            // 
+            // button22
+            // 
+            button22.Location = new Point(675, 110);
+            button22.Name = "button22";
+            button22.Size = new Size(63, 36);
+            button22.TabIndex = 25;
+            button22.Text = "bin";
+            button22.UseVisualStyleBackColor = true;
+            button22.Click += button22_Click;
+            // 
+            // button23
+            // 
+            button23.Location = new Point(675, 152);
+            button23.Name = "button23";
+            button23.Size = new Size(63, 34);
+            button23.TabIndex = 26;
+            button23.Text = "dec";
+            button23.UseVisualStyleBackColor = true;
+            button23.Click += button23_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(803, 585);
+            Controls.Add(button23);
+            Controls.Add(button22);
+            Controls.Add(button20);
             Controls.Add(button14);
             Controls.Add(checkBox1);
             Controls.Add(button19);
             Controls.Add(button18);
             Controls.Add(button17);
             Controls.Add(button16);
-            Controls.Add(kommatecken);
+            Controls.Add(button21);
             Controls.Add(button7);
             Controls.Add(button15);
             Controls.Add(textBox1);
@@ -361,12 +400,15 @@
         private TextBox textBox1;
         private Button button15;
         private Button button7;
-        private Button kommatecken;
+        private Button button21;
         private Button button16;
         private Button button17;
         private Button button18;
         private Button button19;
         private CheckBox checkBox1;
         private Button button14;
+        private Button button20;
+        private Button button22;
+        private Button button23;
     }
 }
